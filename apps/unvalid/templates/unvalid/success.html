@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>SUCCESS</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'validator/css/style.css' %}">
+  </head>
+  <body>
+    {% for message in message %}
+      <h3>{{ message.message }}</h3>
+    {% endfor %}
+    {% for user in user %}
+    <p>
+        {{ user.username }}
+        {{ user.created_at.date }} {{ user.created_at.time }}
+        <a href='/delete/{{user.id}}'><button type=''>remove</button></a>
+    </p>
+    {% endfor %}
+    <a href='/reset'><button type=''>return home</button></a>
+  </body>
+</html>
